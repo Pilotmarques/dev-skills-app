@@ -4,6 +4,9 @@
 // We need to add functionality to the button so that we get the value
 // We will build a DOM element using that value
 // Then we will add that element to the DOM
+// We need to add a remove Skill Feature
+// Add a delete button - span tag with an X as it's content
+// Add a function that will pluck the bad boy from the DOM
 
 
 // State Variables
@@ -20,14 +23,15 @@ function getInputText(){
 }
 
 function createElement(str){
-    $skillElement = $(`<li>${str}</li>`)
+    $skillElement = $(`<li><span>X</span> ${str}</li>`)
     addSkill($skillElement)
 }
 
 function addSkill(element){
     $('section ul').append(element)
+    $('span').on('click', removeSkill)
 }
 
-
-
-
+function removeSkill(evt){
+    $(evt.target).parent().remove()
+}
